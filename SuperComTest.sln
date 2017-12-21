@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{B01F6264-6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperCom.Host", "src\Host\SuperCom.Host\SuperCom.Host.csproj", "{B987ECE2-0091-4667-A3E8-F6D1BBDE1D2F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F0F99429-2E65-4E4E-BB77-523F0D674F2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperCom.Tests", "src\Tests\SuperCom.Tests\SuperCom.Tests.csproj", "{ED2ED94D-FE3D-4110-826B-C4EC4C119C14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{B987ECE2-0091-4667-A3E8-F6D1BBDE1D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B987ECE2-0091-4667-A3E8-F6D1BBDE1D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B987ECE2-0091-4667-A3E8-F6D1BBDE1D2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED2ED94D-FE3D-4110-826B-C4EC4C119C14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED2ED94D-FE3D-4110-826B-C4EC4C119C14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED2ED94D-FE3D-4110-826B-C4EC4C119C14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED2ED94D-FE3D-4110-826B-C4EC4C119C14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B987ECE2-0091-4667-A3E8-F6D1BBDE1D2F} = {B01F6264-6476-422F-9E3D-F36BF1215B30}
+		{ED2ED94D-FE3D-4110-826B-C4EC4C119C14} = {F0F99429-2E65-4E4E-BB77-523F0D674F2C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AFD9D02C-F784-4FE7-8044-85192C2D833A}
