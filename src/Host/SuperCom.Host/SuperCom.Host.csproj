@@ -112,10 +112,19 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -127,6 +136,20 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\IoC.CastleWindsor\IoC.CastleWindsor.csproj">
+      <Project>{c45c7de2-083a-48f4-a3f0-02d521e9cd9a}</Project>
+      <Name>IoC.CastleWindsor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Sql.Infrastructure.IoC\Sql.Infrastructure.IoC.csproj">
+      <Project>{65388c10-1a65-46f3-9151-6e3a7ad7d36a}</Project>
+      <Name>Sql.Infrastructure.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\SuperCom.Infrastructure\Sql.Infrastructure.csproj">
+      <Project>{13aff7d0-2a96-4412-a335-0882e9902783}</Project>
+      <Name>Sql.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
