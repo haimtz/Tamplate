@@ -1,17 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace SuperCom.Infrastructure
+namespace Sql.Infrastructure
 {
-    public interface IDataTableContext<T>
+    public interface IDataTableContext
     {
-        IList<T> ReadAll(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param);
+        SqlDataReader Reader(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param);
 
-        object Insert(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param);
+        object ExecuteScalar(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param);
 
-        void Update(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param);
-
-        bool Delete(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param);
+        int ExecuteNonQuery(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param);
     }
 }

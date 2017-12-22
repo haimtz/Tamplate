@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Common.Const\Common.Const.csproj">
+    <ProjectReference Include="..\..\Common\Common.Const\Common.csproj">
       <Project>{77e26714-0bb2-409f-8a34-46c2415069c0}</Project>
-      <Name>Common.Const</Name>
+      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\SuperCom.Infrastructure\Sql.Infrastructure.csproj">
       <Project>{13aff7d0-2a96-4412-a335-0882e9902783}</Project>

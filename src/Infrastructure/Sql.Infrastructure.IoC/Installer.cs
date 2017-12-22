@@ -2,9 +2,8 @@
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using SuperCom.Infrastructure;
 using System.Configuration;
-using Common.Const;
+using Common;
 
 namespace Sql.Infrastructure.IoC
 {
@@ -15,6 +14,8 @@ namespace Sql.Infrastructure.IoC
             container.Register(Component.For<ISqlConnection>()
                 .ImplementedBy<SqlConnectionWrapper>()
                 .UsingFactoryMethod(CreateSqlConnection));
+
+            container.Register(Component.For<IDataTableContext>().ImplementedBy<DataTableContext>());
         }
 
         private SqlConnectionWrapper CreateSqlConnection(IKernel kernel)

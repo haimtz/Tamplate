@@ -1,4 +1,4 @@
-﻿namespace Common.Const
+﻿namespace Common
 {
     public class Const
     {

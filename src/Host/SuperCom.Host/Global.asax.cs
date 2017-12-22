@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Http;
 using IoC.CastleWindsor;
+using System.Web.Http.Dispatcher;
 
 namespace SuperCom.Host
 {
@@ -13,8 +14,9 @@ namespace SuperCom.Host
 
         void Application_Start(object sender, EventArgs e)
         {
-            var assemblise = new string[] 
+            var assemblise = new string[]
             {
+                "SuperCom.Host",
                 "Sql.Infrastructure.IoC"
             };
 
@@ -22,10 +24,13 @@ namespace SuperCom.Host
 
             _resolver = DependencyResolverFactory.GetResolver();
 
+            GlobalConfiguration.Configuration.Services.Replace(
+                typeof(IHttpControllerActivator),
+                new WindsorCompositionRoot(_resolver.GetResolver));
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes); 
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }

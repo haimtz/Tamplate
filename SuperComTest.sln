@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sql.Infrastructure.IoC", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{7F9F71E6-6148-451B-B38C-771050DB10DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common.Const", "src\Common\Common.Const\Common.Const.csproj", "{77E26714-0BB2-409F-8A34-46C2415069C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "src\Common\Common.Const\Common.csproj", "{77E26714-0BB2-409F-8A34-46C2415069C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

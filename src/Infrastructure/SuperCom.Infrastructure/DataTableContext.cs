@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
-namespace SuperCom.Infrastructure
+namespace Sql.Infrastructure
 {
-    public class DataTableContext<T> : IDataTableContext<T>
+    public class DataTableContext : IDataTableContext
     {
         private readonly ISqlConnection _sqlconnection;
 
@@ -14,16 +12,14 @@ namespace SuperCom.Infrastructure
             _sqlconnection = sqlconnection;
         }
 
-        public IList<T> ReadAll(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)
+        public SqlDataReader Reader(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)
         {
             try
             {
                 var command = CreateCommand(query, commandType, param);
                 _sqlconnection.Open();
 
-                var reader = command.ExecuteReader();
-
-                return null;
+                return command.ExecuteReader();
             }
             finally
             {
@@ -31,19 +27,32 @@ namespace SuperCom.Infrastructure
             }
         }
 
-        public object Insert(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)
+        public object ExecuteScalar(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var command = CreateCommand(query, commandType, param);
+                _sqlconnection.Open();
+                return command.ExecuteScalar();
+            }
+            finally
+            {
+                _sqlconnection.Close();
+            }
         }
 
-        public void Update(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)
+        public int ExecuteNonQuery(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Delete(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                var command = CreateCommand(query, commandType, param);
+                _sqlconnection.Open();
+                return command.ExecuteNonQuery();
+            }
+            finally
+            {
+                _sqlconnection.Close();
+            }
         }
 
         private SqlCommand CreateCommand(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)

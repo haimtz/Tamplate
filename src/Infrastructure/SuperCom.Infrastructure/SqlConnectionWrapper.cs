@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace SuperCom.Infrastructure
+namespace Sql.Infrastructure
 {
     public class SqlConnectionWrapper : ISqlConnection
     {
