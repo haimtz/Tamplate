@@ -5,7 +5,7 @@ namespace Sql.Infrastructure
 {
     public interface IDataTableContext
     {
-        SqlDataReader Reader(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param);
+        DataTable Reader(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param);
 
         object ExecuteScalar(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param);
 

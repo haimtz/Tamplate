@@ -43,10 +43,17 @@
   <ItemGroup>
     <Compile Include="DataTableContext.cs" />
     <Compile Include="IDataTableContext.cs" />
+    <Compile Include="ISqlAdapter.cs" />
+    <Compile Include="ISqlAdapterFactory.cs" />
+    <Compile Include="ISqlCommand.cs" />
+    <Compile Include="ISqlCommandFactory.cs" />
     <Compile Include="ISqlConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlAdapterFactory.cs" />
+    <Compile Include="SqlAdapterWrapper.cs" />
+    <Compile Include="SqlCommandFactory.cs" />
+    <Compile Include="SqlCommandWrapper.cs" />
     <Compile Include="SqlConnectionWrapper.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

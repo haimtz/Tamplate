@@ -15,6 +15,12 @@ namespace Sql.Infrastructure.IoC
                 .ImplementedBy<SqlConnectionWrapper>()
                 .UsingFactoryMethod(CreateSqlConnection));
 
+            container.Register(Component.For<ISqlCommand>().ImplementedBy<SqlCommandWrapper>());
+            container.Register(Component.For<ISqlCommandFactory>().ImplementedBy<SqlCommandFactory>());
+
+            container.Register(Component.For<ISqlAdapter>().ImplementedBy<SqlAdapterWrapper>());
+            container.Register(Component.For<ISqlAdapterFactory>().ImplementedBy<SqlAdapterFactory>());
+
             container.Register(Component.For<IDataTableContext>().ImplementedBy<DataTableContext>());
         }
 

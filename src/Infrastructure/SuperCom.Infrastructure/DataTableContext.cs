@@ -6,20 +6,26 @@ namespace Sql.Infrastructure
     public class DataTableContext : IDataTableContext
     {
         private readonly ISqlConnection _sqlconnection;
+        private readonly ISqlCommandFactory _commandFactory;
+        private readonly ISqlAdapterFactory _adapterFactory;
 
-        public DataTableContext(ISqlConnection sqlconnection)
+        public DataTableContext(ISqlConnection sqlconnection, ISqlCommandFactory commandFactory, ISqlAdapterFactory adapterFactory)
         {
             _sqlconnection = sqlconnection;
+            _commandFactory = commandFactory;
+            _adapterFactory = adapterFactory;
         }
 
-        public SqlDataReader Reader(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)
+        public DataTable Reader(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)
         {
+            DataTable table = new DataTable();
             try
             {
-                var command = CreateCommand(query, commandType, param);
+                var adatpter = _adapterFactory.Create();
+                adatpter.SelectCommand = CreteCommand(query, commandType, param);
                 _sqlconnection.Open();
-
-                return command.ExecuteReader();
+                adatpter.FillTable(table);
+                return table;
             }
             finally
             {
@@ -31,7 +37,8 @@ namespace Sql.Infrastructure
         {
             try
             {
-                var command = CreateCommand(query, commandType, param);
+                var command = CreteCommand(query, commandType, param);
+
                 _sqlconnection.Open();
                 return command.ExecuteScalar();
             }
@@ -45,7 +52,8 @@ namespace Sql.Infrastructure
         {
             try
             {
-                var command = CreateCommand(query, commandType, param);
+                var command = CreteCommand(query, commandType, param);
+
                 _sqlconnection.Open();
                 return command.ExecuteNonQuery();
             }
@@ -55,18 +63,12 @@ namespace Sql.Infrastructure
             }
         }
 
-        private SqlCommand CreateCommand(string query, CommandType commandType = CommandType.Text, params SqlParameter[] param)
+        private ISqlCommand CreteCommand(string query, CommandType commandType, SqlParameter[] param)
         {
-            var command = new SqlCommand
-            {
-                Connection = _sqlconnection.Connection,
-                CommandText = query,
-                CommandType = commandType
-            };
-
+            var command = _commandFactory.CreateCommand(query, _sqlconnection);
+            command.SetCommandType(commandType);
             if (param.Length > 0)
-                command.Parameters.AddRange(param);
-
+                command.AddParameters(param);
             return command;
         }
     }
