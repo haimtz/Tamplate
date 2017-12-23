@@ -26,11 +26,6 @@ namespace SuperCom.Host
 
             _resolver = DependencyResolverFactory.GetResolver();
 
-            var test = _resolver.GetResolver.Resolve<IUserRepository>();
-
-           var u = test.GetUsers();
-
-
             GlobalConfiguration.Configuration.Services.Replace(
                 typeof(IHttpControllerActivator),
                 new WindsorCompositionRoot(_resolver.GetResolver));

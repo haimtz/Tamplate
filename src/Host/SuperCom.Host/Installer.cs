@@ -9,7 +9,7 @@ namespace SuperCom.Host
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<ValuesController>().ImplementedBy<ValuesController>());
+            container.Register(Component.For<UserController>().ImplementedBy<UserController>());
         }
     }
 }
