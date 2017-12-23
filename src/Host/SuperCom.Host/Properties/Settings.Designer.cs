@@ -26,7 +26,7 @@ namespace SuperCom.Host.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-S4GDTVS;Initial Catalog=HaimDemo;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-S4GDTVS;Initial Catalog=SuperTest;Integrated Security=True")]
         public string ConnectionDB {
             get {
                 return ((string)(this["ConnectionDB"]));

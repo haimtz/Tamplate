@@ -5,6 +5,7 @@ using System.Web.Routing;
 using System.Web.Http;
 using IoC.CastleWindsor;
 using System.Web.Http.Dispatcher;
+using Super.User.Identity;
 
 namespace SuperCom.Host
 {
@@ -17,12 +18,18 @@ namespace SuperCom.Host
             var assemblise = new string[]
             {
                 "SuperCom.Host",
-                "Sql.Infrastructure.IoC"
+                "Sql.Infrastructure.IoC",
+                "Super.User.Identity.IoC"
             };
 
             DependencyResolverFactory.Initialize(assemblise);
 
             _resolver = DependencyResolverFactory.GetResolver();
+
+            var test = _resolver.GetResolver.Resolve<IUserRepository>();
+
+           var u = test.GetUsers();
+
 
             GlobalConfiguration.Configuration.Services.Replace(
                 typeof(IHttpControllerActivator),

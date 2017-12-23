@@ -25,9 +25,9 @@ namespace Sql.Infrastructure
             _command.Connection = connection.Connection;
         }
 
-        public void AddParameters(SqlParameter[] sqlParameter)
+        public void AddParameters(SqlParameter[] sqlParameters)
         {
-            _command.Parameters.Add(sqlParameter);
+            _command.Parameters.AddRange(sqlParameters);
         }
 
         public int ExecuteNonQuery()

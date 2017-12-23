@@ -149,6 +149,14 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Identity\Super.User.Identity.IoC\Super.User.Identity.IoC.csproj">
+      <Project>{64e1e134-5a3a-4a8d-a359-13d0aab4ab55}</Project>
+      <Name>Super.User.Identity.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Identity\User.Identity\Super.User.Identity.csproj">
+      <Project>{64bb8d70-0d7a-48d0-aaec-f0571e1d3feb}</Project>
+      <Name>Super.User.Identity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\IoC.CastleWindsor\IoC.CastleWindsor.csproj">
       <Project>{c45c7de2-083a-48f4-a3f0-02d521e9cd9a}</Project>
       <Name>IoC.CastleWindsor</Name>
