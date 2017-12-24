@@ -1,4 +1,4 @@
-﻿using Super.User.Identity;
+using Super.User.Identity;
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
@@ -14,26 +14,26 @@ namespace SuperCom.Host.Controllers
             _userRepository = userRepository;
         }
 
-        [HttpGet]
-        public IEnumerable<UserModle> Get()
+        
+        public IList<UserModle> Get()
         {
             return _userRepository.GetUsers();
         }
 
-        [HttpGet]
+        
         public UserModle Get(string id)
         {
             var guid = Guid.Parse(id);
             return _userRepository.GetUser(guid);
         }
 
-        [HttpPost]
+        
         public void Post([FromBody]UserModle user)
         {
             _userRepository.AddUser(user);
         }
 
-        [HttpPut]
+        
         public void Put(string id,[FromBody]UserModle user)
         {
             var guid = Guid.Parse(id);
@@ -41,7 +41,7 @@ namespace SuperCom.Host.Controllers
             _userRepository.UpdateUser(user);
         }
 
-        [HttpDelete]
+        
         public void Delete(string id)
         {
             var guid = Guid.Parse(id);
