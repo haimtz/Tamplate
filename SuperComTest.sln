@@ -29,6 +29,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super.User.Identity", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Super.User.Identity.IoC", "src\Identity\Super.User.Identity.IoC\Super.User.Identity.IoC.csproj", "{64E1E134-5A3A-4A8D-A359-13D0AAB4AB55}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBase", "DataBase", "{777206CA-B3D8-461A-A116-5948193B8F16}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\SuperTest = ..\..\..\..\SuperTest
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
