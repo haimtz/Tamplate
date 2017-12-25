@@ -1,0 +1,22 @@
+.user-details{
+    border: 1px solid black;
+    width: 400px;
+    height: 200px;
+    margin: 5px;
+    display: flex;
+}
+
+.logo{
+    padding: 10px;
+    font-size: 90px;
+}
+
+.title{
+    font-weight: bold;
+    margin-top:2px;
+    margin-bottom: 2px;
+}
+
+.content{
+    padding: 15px;
+}

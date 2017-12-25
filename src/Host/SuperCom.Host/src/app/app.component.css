@@ -1,3 +1,17 @@
-h2{
-  color: red;
+.user-list{
+    display: flex;
+}
+
+.user-list .list{
+    width: 20%;
+    margin: 5px;
+}
+
+.user-list .user-details{
+    margin: 5px;
+    width: 78%;
+}
+
+.title{
+    font-weight: bold;
 }

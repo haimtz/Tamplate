@@ -1,6 +1,12 @@
 <div class="user-list">
-  <div *ngFor="let user of users">
-    <span>{{user.firstName}}</span>
-    <span>{{user.lastName}}</span>
+  <div class="list">
+    <div *ngFor="let item of users" >
+      <app-user-panel [user]="item" [clickevent]="selectUser.bind(this)"></app-user-panel>
+    </div>
   </div>
+
+  <div class="user-details">
+    <app-user-details [user]="selectedUser"></app-user-details>
+  </div>
+
 </div>

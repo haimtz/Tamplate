@@ -1,0 +1,23 @@
+<div class="user-details" *ngIf="user">
+    <div class="logo glyphicon glyphicon-user"></div>
+    <div class="content">
+        <div>
+            <span class="title">First Name:</span>
+            <span>{{user.firstName}}</span>
+            <br>
+            <span class="title">Last Name:</span>
+            <span>{{user.last}}</span>
+            <br>
+            <span class="title">Age:</span>
+            <span>{{user.age}}</span>
+            <br>
+
+        </div>
+        <div>
+            <span class="title">Adresses</span>
+            <ul>
+                <li *ngFor="let item of user.addresses">{{item}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
